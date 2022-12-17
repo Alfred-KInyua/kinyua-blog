@@ -7,19 +7,20 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-  
   end
+
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      flash.notice='Article was successfully updated'
+      flash.notice = 'Article was successfully updated'
       redirect_to article_path(@article)
     else
       render :edit, status: :unprocessable_entity
 
-
     end
-  
+  end
+  def index
+    @displayAll = Article.all
   end
 
   def create
