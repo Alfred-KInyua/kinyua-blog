@@ -1,24 +1,23 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
+  before_action :set_articles_with_id, only: %i[edit update show destroy]
   def new
     @article = Article.new
   end
 
-  def edit
-    @article = Article.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @article = Article.find(params[:id])
     if @article.update(article_params)
-      flash[:notice]= 'Article was successfully updated'
+      flash[:notice] = 'Article was successfully updated'
       redirect_to article_path(@article)
     else
       render :edit, status: :unprocessable_entity
 
     end
   end
+
   def index
     @displayAll = Article.all
   end
@@ -33,17 +32,19 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show
-    @article = Article.find(params[:id])
-  end
+  def show; end
+
   def destroy
-    @article=Article.find(params[:id] )
     @article.destroy
-    flash[:notice]="Article deleted!"
+    flash[:notice] = 'Article deleted!'
     redirect_to article_path
   end
 
   private
+
+  def set_articles_with_id
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :description)
