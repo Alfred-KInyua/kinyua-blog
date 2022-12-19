@@ -1,0 +1,22 @@
+<%=link_to 'create new article', new_article_path%> ||<%=link_to 'List all articles', root_path%>
+<% if @article.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+        <% @article.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <% end %>
+
+<%= form_with(model: @article) do |f| %>
+<p>
+<h2><%=f.label :title%></h2>
+<%=f.text_field :title%><br/><p>
+<h2><p><%=f.label :description%><br/></h2>
+<%=f.text_area :description%></p>
+<p><%= f.submit%></p>
+<%end%>
