@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :users
   root 'pages#index'
   get 'about', to: 'pages#about'
   resources :articles
