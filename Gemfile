@@ -73,3 +73,4 @@ group :test do
   gem 'webdrivers'
 end
 gem 'bootstrap', '~> 5.2.3'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
