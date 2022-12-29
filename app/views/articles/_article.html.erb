@@ -1,0 +1,18 @@
+<%=link_to 'create new article', new_article_path%>
+<table class="table table-striped table-dark m-2">
+<tr>
+ <th scope="col">Title</th> <th scope="col">Description</th>
+ <th scope="col">Edit section</th> <th scope="col">Show section</th>
+ <th scope="col">Delete section</th> <tr>
+<tbody>
+<%obj.each do|f|%>
+<tr>
+<td><%=f.title%></td>
+<small><td><h3><%=f.description%></h3><strong class="text-primary"> <br/>created by </strong> <%= f.user.username%>,
+<%=time_ago_in_words(f.created_at)%>ago, last updated:<%=time_ago_in_words(f.updated_at)%>ago</td></small>
+<td><%=link_to 'Edit this article', edit_article_path(f), class: "btn btn-xs btn-primary"%></td>
+<td><%=link_to 'Show this article ', article_path(f), class: "btn btn-xs btn-secondary"%></td>
+<td><%= link_to "Delete this article", article_path(f),class: "btn btn-xs btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+<%end%>
+<tbody>
+</table>
