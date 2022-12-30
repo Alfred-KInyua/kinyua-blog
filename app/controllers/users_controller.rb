@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -29,9 +31,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_articles = @user.articles.paginate(page: params[:page], per_page:3)
   end
+
   def index
-    @user=User.all
+    @user = User.paginate(page: params[:page], per_page:5)
   end
 
   private

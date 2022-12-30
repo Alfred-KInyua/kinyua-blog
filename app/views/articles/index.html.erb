@@ -1,2 +1,6 @@
 <h2 align="center">Listing all articles</h2>
+
+<div class='d-flex justify-content-center'><h3><%= will_paginate(@displayAll) %><h3></div>
 <%= render 'article', obj: @displayAll%>
+<div align="center"><%= will_paginate(@displayAll) %></div>
+<div class='d-flex justify-content-center'><h3><%= will_paginate(@displayAll) %><h3></div>
