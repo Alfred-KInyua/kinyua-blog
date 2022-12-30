@@ -1,3 +1,5 @@
 <p> Title:<%=@article.title%></p>
-<p>Description:<%=@article.description%></p>
-<%=link_to 'create new article', new_article_path%> ||<%=link_to 'list Articles', root_path%> ||<%=link_to 'Edit', edit_article_path(@article)%>
+<p>Description:<%=@article.description%>by <%=link_to @article.user.username, user_path(@article)%></p>
+<%=link_to 'create new article', new_article_path%>
+||<%=link_to 'list Articles', root_path%> 
+||<%=link_to 'Edit', edit_article_path(@article)%>
