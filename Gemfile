@@ -74,5 +74,5 @@ group :test do
 end
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'bootstrap', '~> 5.2.3'
-gem 'will_paginate', '~> 3.3', '>= 3.3.1'
-gem 'bootstrap-will_paginate', '~> 1.0'
+gem 'bootstrap-will_paginate', '~> 1.0'gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+

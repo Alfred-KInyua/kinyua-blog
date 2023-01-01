@@ -19,8 +19,9 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @displayAll = Article.paginate(page: params[:page],per_page:5)
+    @displayAll = Article.paginate(page: params[:page], per_page: 5)
   end
+
   def create
     @article = Article.new(article_params)
     @article.user = User.first

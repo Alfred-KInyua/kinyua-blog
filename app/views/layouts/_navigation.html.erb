@@ -6,6 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <%if logged_in?%>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
@@ -23,9 +24,15 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+       <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><%=link_to 'logout',logout_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%></a>
         </li>
+        <%else%>
+           <a class="nav-link active" aria-current="page" href="#"><%=link_to 'login',login_path %></a>
+
+          <a class="nav-link active" aria-current="page" href="#"><%=link_to 'sign up', signup_path%></a>
+
+        <%end%>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
